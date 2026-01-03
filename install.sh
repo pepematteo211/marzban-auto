@@ -20,7 +20,7 @@ cat > /opt/marzban/.env <<EOF
 UVICORN_PORT=443
 UVICORN_SSL_CERTFILE="/var/lib/marzban/certs/fullchain.pem"
 UVICORN_SSL_KEYFILE="/var/lib/marzban/certs/key.pem"
-XRAY_SUBSCRIPTION_URL_PREFIX="https://forsalebot.top"
+XRAY_SUBSCRIPTION_URL_PREFIX="https://a.forsalebot.top"
 EOF
 
 # --- Генерация рандомной почты для acme.sh ---
@@ -34,7 +34,7 @@ curl https://get.acme.sh | sh -s email=${RAND_EMAIL}
 mkdir -p /var/lib/marzban/certs
 
 ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-~/.acme.sh/acme.sh --issue --standalone -d forsalebot.top \
+~/.acme.sh/acme.sh --issue --standalone -d a.forsalebot.top \
   --key-file /var/lib/marzban/certs/key.pem \
   --fullchain-file /var/lib/marzban/certs/fullchain.pem
 
@@ -47,3 +47,4 @@ echo "=============================="
 echo "✅ УСТАНОВКА ЗАВЕРШЕНА"
 echo "EMAIL (acme.sh): ${RAND_EMAIL}"
 echo "=============================="
+
